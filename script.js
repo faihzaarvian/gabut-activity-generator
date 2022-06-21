@@ -18,7 +18,7 @@ async function fetchActivity() {
     }
   }
 
-  fetch(`http://www.boredapi.com/api/activity?type=${selectedActivity}&price=${selectedPriceNumber}`)
+  fetch(`https://www.boredapi.com/api/activity?type=${selectedActivity}&price=${selectedPriceNumber}`)
     .then(res=>res.json())
     .then(resp=>{
       // fetch activity data in english
