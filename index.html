@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GABUT - Generator Aktivitas</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-header">
+        <div class="header-img">
+            <img src="assets/bored-icon.jpg">
+        </div>
+        <div class="header-text">
+            <h1>GABUT</h1>
+            <h2>Are you bored? Need activity?</h2>
+        </div>
+    </div>
+    <div class="center">
+        <div class="column" id="activity-type-radio">
+            <h3>Pilih Tipe Aktivitas</h3>
+            <ul>
+                <li><input type="radio" name="activity-type" id="education">Pendidikan</li>
+                <li><input type="radio" name="activity-type" id="recreational">Rekreasi</li>
+                <li><input type="radio" name="activity-type" id="social">Sosial</li>
+                <li><input type="radio" name="activity-type" id="diy">DIY</li>
+                <li><input type="radio" name="activity-type" id="charity">Kegiatan Amal</li>
+                <li><input type="radio" name="activity-type" id="cooking">Memasak</li>
+                <li><input type="radio" name="activity-type" id="relaxation">Relaksasi</li>
+                <li><input type="radio" name="activity-type" id="music">Musik</li>
+                <li><input type="radio" name="activity-type" id="busywork">Kegiatan Sibuk</li>
+            </ul>
+        </div>
+        <div class="column" id="activity-type-radio">
+            <h3>Biaya</h3>
+            <ul>
+                <li><input type="radio" name="activity-price" id="0">Gratis</li>
+                <li><input type="radio" name="activity-price" id="1">Berbayar</li>
+            </ul>
+        </div>
+        <div class="column">
+            <button onclick="fetchActivity()">GENERATE</button>
+            <div class="activity-desc">
+                <h3>Saran kami adalah</h3>
+                <p id="activity-desc-eng"></p>
+                <p id="activity-desc"></p>
+            </div>
+        </div>
+    </div>
+    <footer class="bottom-footer">
+        <div class="footer-desc">
+            <h4>Created by</h4>
+            <h3>Faihza Arvian Priyambada</h3>
+            <p><a href="https://github.com/faihzaarvian">Github</a> | <a href="https://www.linkedin.com/in/faihza-arvian-priyambada/">LinkedIn</a></p>
+        </div>
+    </footer>
+</body>
+</html>
