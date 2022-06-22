@@ -1,6 +1,6 @@
-## GABUT - Generator Aktivits
+## GABUT - Generator Aktivitas
 Tugas akhir project FGA x Progate.
-Web sederhana dimana pengguna dapat _generate_ suatu aktivitas berdasarkan parameter yang dipilih.
+Web sederhana dimana pengguna dapat _generate_ suatu aktivitas berdasarkan dua parameter _input_ yang dipilih.
 
 Bahasa Pemrograman : HTML, CSS, JavaScript
 
