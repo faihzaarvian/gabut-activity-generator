@@ -11,14 +11,16 @@ async function fetchActivity() {
     if (activityPrice[i].checked === true) {
       selectedPrice = activityPrice[i].id;
       if (selectedPrice == 0) {
-        selectedPriceNumber = 0;
+        minPrice = 0;
+        maxPrice = 0;
       } else if (selectedPrice == 1) {
-        selectedPriceNumber = Math.random();
+        minPrice = 0.01;
+        maxPrice = 1.00;
       }
     }
   }
 
-  fetch(`https://www.boredapi.com/api/activity?type=${selectedActivity}&price=${selectedPriceNumber}`)
+  fetch(`https://www.boredapi.com/api/activity?type=${selectedActivity}&minprice=${minPrice}&maxprice=${maxPrice}`)
     .then(res=>res.json())
     .then(resp=>{
       // fetch activity data in english
