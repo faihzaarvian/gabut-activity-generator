@@ -10,4 +10,4 @@ API yang digunakan :
 
 [Bored API](https://www.boredapi.com/)
 
-[Google Translation API](https://rapidapi.com/googlecloud/api/google-translate1/)
+[Google Translation API](https://rapidapi.com/googlecloud/api/google-translate1/) (Terbatas untuk translasi 500 karakter/bulan)
