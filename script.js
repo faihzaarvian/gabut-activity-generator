@@ -20,7 +20,7 @@ async function fetchActivity() {
     }
   }
 
-  fetch(`https://www.boredapi.com/api/activity?type=${selectedActivity}&minprice=${minPrice}&maxprice=${maxPrice}`)
+  await fetch(`http://www.boredapi.com/api/activity?type=${selectedActivity}&minprice=${minPrice}&maxprice=${maxPrice}`)
     .then(res=>res.json())
     .then(resp=>{
       // fetch activity data in english
@@ -48,7 +48,7 @@ async function fetchActivity() {
 	      body: encodedParams
       };
 
-      fetch('https://google-translate1.p.rapidapi.com/language/translate/v2', options)
+      await fetch('https://google-translate1.p.rapidapi.com/language/translate/v2', options)
       	.then(response => response.json())
       	.then(response => {
           console.log(response);
