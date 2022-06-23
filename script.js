@@ -20,46 +20,41 @@ async function fetchActivity() {
     }
   }
 
-  await fetch(`https://www.boredapi.com/api/activity?type=${selectedActivity}&minprice=${minPrice}&maxprice=${maxPrice}`)
+  await fetch(`http://www.boredapi.com/api/activity?type=${selectedActivity}&minprice=${minPrice}&maxprice=${maxPrice}`)
     .then(res=>res.json())
     .then(resp=>{
       // fetch activity data in english
       const activityEng = resp.activity;
+      const actEngToStr = String(activityEng);
       if (activityEng === undefined ) {
         document.getElementById("activity-desc-eng").innerHTML = "Tidak ditemukan kegiatan yang diminta";  
       } else {
         document.getElementById("activity-desc-eng").innerHTML = `EN : ${activityEng}`;
       }
 
-      // translating to indonesian (limited to 500 char/month)
-      const encodedParams = new URLSearchParams();
-      encodedParams.append("q", resp.activity);
-      encodedParams.append("target", "id");
-      encodedParams.append("source", "en");
-
+      // translating to indonesian 
       const options = {
-      	method: 'POST',
-      	headers: {
-	      	'content-type': 'application/x-www-form-urlencoded',
-	      	'Accept-Encoding': 'application/gzip',
-	      	'X-RapidAPI-Key': '05a33bfcbfmsh531013ad3601157p165aaejsn4f8c443ce627',
-	      	'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
-	      },
-	body: encodedParams
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'X-RapidAPI-Key': '05a33bfcbfmsh531013ad3601157p165aaejsn4f8c443ce627',
+          'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com'
+        },
+        body: `[{"Text":"${actEngToStr}"}]`
       };
-
-      fetch('https://google-translate1.p.rapidapi.com/language/translate/v2', options)
-      	.then(response => response.json())
-      	.then(response => {
-          console.log(response);
-          const translatedActivity = response.data.translations[0].translatedText;
-          if (translatedActivity === "tidak terdefinisi" ) {
+      
+      fetch('https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=id&api-version=3.0&profanityAction=NoAction&textType=plain', options)
+        .then(response => response.json())
+        .then(response => {
+          const activityId = response[0].translations[0].text;
+          console.log(activityId);
+          if (activityId === undefined ) {
             document.getElementById("activity-desc").innerHTML = "Tidak ditemukan kegiatan yang diminta";  
           } else {
-            document.getElementById("activity-desc").innerHTML = `ID : ${translatedActivity}`;
+            document.getElementById("activity-desc").innerHTML = `ID : ${activityId}`;
           }
         })
-        .catch(errs => console.error(errs));
+        .catch(error => console.error(error));
     })
     .catch(err => console.error(err));
 }
