@@ -48,7 +48,7 @@ async function fetchActivity() {
 	      body: encodedParams
       };
 
-      await fetch('https://google-translate1.p.rapidapi.com/language/translate/v2', options)
+      fetch('https://google-translate1.p.rapidapi.com/language/translate/v2', options)
       	.then(response => response.json())
       	.then(response => {
           console.log(response);
