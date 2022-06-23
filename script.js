@@ -20,7 +20,7 @@ async function fetchActivity() {
     }
   }
 
-  await fetch(`http://www.boredapi.com/api/activity?type=${selectedActivity}&minprice=${minPrice}&maxprice=${maxPrice}`)
+  await fetch(`https://www.boredapi.com/api/activity?type=${selectedActivity}&minprice=${minPrice}&maxprice=${maxPrice}`)
     .then(res=>res.json())
     .then(resp=>{
       // fetch activity data in english
@@ -42,10 +42,10 @@ async function fetchActivity() {
       	headers: {
 	      	'content-type': 'application/x-www-form-urlencoded',
 	      	'Accept-Encoding': 'application/gzip',
-	      	'X-RapidAPI-Key': 'df109ec14fmshf4814284da5990dp1ee426jsna1382d98b662',
+	      	'X-RapidAPI-Key': '05a33bfcbfmsh531013ad3601157p165aaejsn4f8c443ce627',
 	      	'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
 	      },
-	      body: encodedParams
+	body: encodedParams
       };
 
       fetch('https://google-translate1.p.rapidapi.com/language/translate/v2', options)
