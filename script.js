@@ -20,7 +20,7 @@ async function fetchActivity() {
     }
   }
 
-  await fetch(`https://www.boredapi.com/api/activity?type=${selectedActivity}&minprice=${minPrice}&maxprice=${maxPrice}`)
+  await fetch(`http://www.boredapi.com/api/activity?type=${selectedActivity}&minprice=${minPrice}&maxprice=${maxPrice}`)
     .then(res=>res.json())
     .then(resp=>{
       // fetch activity data in english
